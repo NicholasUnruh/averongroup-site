@@ -35,7 +35,7 @@ a { color: inherit; text-decoration: none; }
   transition: background 0.2s, transform 0.2s var(--ease), opacity 0.2s;
 }
 .btn:active { transform: scale(0.98); }
-.btn-small { height: 38px; padding: 0 18px; font-size: 14px; }
+.btn-small { height: 44px; padding: 0 22px; font-size: 15px; }
 .btn-accent { background: var(--accent); color: #fff; }
 .btn-accent:hover { background: var(--accent-hover); }
 .btn-accent:disabled { opacity: 0.6; cursor: default; }
@@ -45,11 +45,11 @@ a { color: inherit; text-decoration: none; }
 /* Nav */
 .nav { position: fixed; inset: 0 0 auto; z-index: 20; transition: background 0.3s, border-color 0.3s; border-bottom: 1px solid transparent; }
 .nav-solid { background: rgba(12, 13, 18, 0.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-color: var(--line); }
-.nav-inner { display: flex; align-items: center; height: 72px; gap: 40px; }
-.nav-links { display: flex; gap: 32px; margin-left: auto; font-size: 14px; color: rgba(238, 240, 244, 0.82); }
+.nav-inner { display: flex; align-items: center; height: 92px; gap: 44px; }
+.nav-links { display: flex; gap: 36px; margin-left: auto; font-size: 16px; color: rgba(238, 240, 244, 0.82); }
 .nav-links a:hover { color: #fff; }
 
-.brand { font-weight: 600; font-size: 25px; letter-spacing: -0.055em; line-height: 1; }
+.brand { font-weight: 600; font-size: 32px; letter-spacing: -0.055em; line-height: 1; }
 .brand i { font-style: normal; color: var(--amber); }
 
 /* Hero: one photo behind the hero and "What we do", so the fog runs on behind the cards */
@@ -151,7 +151,8 @@ h2 { font-weight: 500; font-size: clamp(32px, 4vw, 52px); letter-spacing: -0.035
 @media (max-width: 860px) {
   .container { padding: 0 16px; }
   .nav-links { display: none; }
-  .nav-inner { justify-content: space-between; }
+  .nav-inner { justify-content: space-between; height: 76px; }
+  .nav .brand { font-size: 28px; }
   .contact { grid-template-columns: 1fr; gap: 32px; }
   .cards { grid-template-columns: 1fr; margin-top: 36px; }
   .card-num { margin-bottom: 24px; }
