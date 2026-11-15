@@ -4,19 +4,15 @@ import { useEffect, useState } from "react";
 const FORM_KEY = "";
 
 const SERVICES = [
-  ["Research", "We study demand, pricing and competition before choosing a product."],
-  ["Sourcing", "We work directly with manufacturers and inspect samples before ordering."],
-  ["Retail", "We sell and ship to customers across Canada through Amazon.ca."],
+  ["01", "Sourcing", "We find products Canadians want and work directly with the manufacturers who make them."],
+  ["02", "Distribution", "We handle import, customs and delivery, so products reach customers across Canada."],
+  ["03", "Sales", "We sell to Canadian consumers through Amazon.ca and other online channels."],
 ];
 
 function Logo() {
   return (
     <a className="brand" href="#top" aria-label="Averon Group home">
-      <svg viewBox="0 0 32 32" aria-hidden="true">
-        <circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" strokeWidth="1.25" />
-        <path d="M10 22.5 16 9l6 13.5M12.4 17.4h7.2" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-      <span>AVERON</span>
+      averon<i>.</i>
     </a>
   );
 }
@@ -80,8 +76,7 @@ function Hero() {
       />
       <div className="hero-shade" aria-hidden="true" />
       <div className="container hero-copy">
-        <h1>Quality products, sourced for Canada.</h1>
-        <p>A Calgary company bringing well-made products to Canadian customers.</p>
+        <h1>Sourcing, distribution and sales for Canadian consumers.</h1>
         <a className="btn btn-light" href="#contact">Get in touch</a>
       </div>
     </section>
@@ -90,12 +85,14 @@ function Hero() {
 
 function About() {
   return (
-    <section className="section" id="about">
-      <div className="container about">
+    <section className="section section-about" id="about">
+      <div className="section-bg" aria-hidden="true" />
+      <div className="container">
         <h2 className="reveal">What we do</h2>
-        <ul className="rows">
-          {SERVICES.map(([title, text]) => (
-            <li className="row reveal" key={title}>
+        <ul className="cards">
+          {SERVICES.map(([num, title, text]) => (
+            <li className="card reveal" key={title}>
+              <span className="card-num">{num}</span>
               <h3>{title}</h3>
               <p>{text}</p>
             </li>
@@ -179,12 +176,13 @@ function ContactForm() {
 function Contact() {
   return (
     <section className="section section-contact" id="contact">
+      <div className="section-bg" aria-hidden="true" />
       <div className="container contact">
         <div className="contact-head reveal">
           <h2>Get in touch</h2>
           <p>Manufacturers, buyers and partners: tell us what you have in mind.</p>
         </div>
-        <div className="reveal">
+        <div className="panel reveal">
           <ContactForm />
         </div>
       </div>
