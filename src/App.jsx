@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const FORM_KEY = "";
 
 const SERVICES = [
-  ["01", "Sourcing", "We identify products in demand across Canada and partner directly with the manufacturers who produce them."],
+  ["01", "Sourcing", "We build direct relationships with manufacturers to bring proven products to the Canadian market."],
   ["02", "Distribution", "We manage importing, customs and logistics, so every product arrives ready for Canadian customers."],
   ["03", "Sales", "We bring products to market on Amazon.ca and other online channels, reaching shoppers nationwide."],
 ];
@@ -170,8 +170,8 @@ function Contact() {
     <section className="section section-contact" id="contact">
       <div className="container contact">
         <div className="contact-head reveal">
-          <h2>Let's work together</h2>
-          <p>Whether you manufacture a product, want to carry one or see an opportunity to partner, we'd like to hear from you.</p>
+          <h2>Get in touch</h2>
+          <p>Have a product, a question or a partnership in mind? Send us a message and we'll get back to you.</p>
         </div>
         <div className="panel reveal">
           <ContactForm />
