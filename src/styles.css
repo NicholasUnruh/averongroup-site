@@ -55,7 +55,7 @@ a { color: inherit; text-decoration: none; }
 .brand i { font-style: normal; color: var(--amber); }
 
 /* One photo runs behind the hero, "What we do" and the contact form */
-.backdrop { position: relative; isolation: isolate; overflow: hidden; --scrim-w: 55%; }
+.backdrop { position: relative; isolation: isolate; overflow: hidden; --scrim-w: 55%; --veil: 0.52; }
 .backdrop-img {
   position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%;
   object-fit: cover; object-position: 50% 0;
@@ -67,7 +67,7 @@ a { color: inherit; text-decoration: none; }
   background:
     linear-gradient(180deg, rgba(12, 13, 18, 0.75) 0, rgba(12, 13, 18, 0) 280px),
     radial-gradient(ellipse var(--scrim-w) 60svh at 50% 66svh, rgba(12, 13, 18, 0.52) 0, rgba(12, 13, 18, 0.42) 50%, rgba(12, 13, 18, 0) 100%),
-    linear-gradient(180deg, rgba(12, 13, 18, 0) 22%, rgba(12, 13, 18, 0.52) 40%, rgba(12, 13, 18, 0.6) 70%, rgba(12, 13, 18, 0.78) 92%, var(--bg) 100%);
+    linear-gradient(180deg, rgba(12, 13, 18, 0) 22%, rgba(12, 13, 18, var(--veil)) 40%, rgba(12, 13, 18, calc(var(--veil) + 0.08)) 70%, rgba(12, 13, 18, 0.78) 92%, var(--bg) 100%);
 }
 /* Grain keeps the large dark areas from banding and looking flat */
 .backdrop-shade::after {
@@ -149,8 +149,12 @@ h2 { font-weight: 500; font-size: clamp(32px, 4vw, 52px); letter-spacing: -0.035
 .reveal.in { opacity: 1; transform: none; }
 
 @media (max-width: 860px) {
-  .container { padding: 0 16px; }
-  .backdrop { --scrim-w: 95%; }
+  .container { padding-inline: 16px; }
+  /* Phones: the page is far taller than the photo, so stretching the photo over all of it zooms in until it blurs.
+     Pin it to the screen instead and let the page scroll over it. clip-path keeps it out of the footer;
+     the darker veil keeps text readable as it passes the bright sky. */
+  .backdrop { --scrim-w: 95%; --veil: 0.62; clip-path: inset(0); }
+  .backdrop-img { position: fixed; inset: 0 0 auto; height: 100lvh; }
   .nav-links { display: none; }
   .nav-inner { justify-content: space-between; height: 76px; }
   .nav .brand { font-size: 28px; }
@@ -159,7 +163,7 @@ h2 { font-weight: 500; font-size: clamp(32px, 4vw, 52px); letter-spacing: -0.035
   .cards { grid-template-columns: 1fr; gap: 36px 0; margin-top: 36px; }
   .panel { padding: 24px 20px; }
   .form-grid { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; justify-content: center; height: auto; padding: 28px 0; }
+  .footer-inner { flex-direction: column; justify-content: center; height: auto; padding-block: 28px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
