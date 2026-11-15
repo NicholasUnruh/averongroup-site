@@ -66,15 +66,6 @@ function Nav() {
 function Hero() {
   return (
     <section className="hero" id="top">
-      <img
-        className="hero-img"
-        src="./hero-2560.webp"
-        srcSet="./hero-1280.webp 1280w, ./hero-2560.webp 2560w"
-        sizes="100vw"
-        alt=""
-        fetchPriority="high"
-      />
-      <div className="hero-shade" aria-hidden="true" />
       <div className="container hero-copy">
         <h1>Sourcing, distribution and sales for Canadian consumers.</h1>
         <a className="btn btn-light" href="#contact">Get in touch</a>
@@ -86,7 +77,6 @@ function Hero() {
 function About() {
   return (
     <section className="section section-about" id="about">
-      <div className="section-bg" aria-hidden="true" />
       <div className="container">
         <h2 className="reveal">What we do</h2>
         <ul className="cards">
@@ -207,8 +197,19 @@ export default function App() {
     <>
       <Nav />
       <main>
-        <Hero />
-        <About />
+        <div className="backdrop">
+          <img
+            className="backdrop-img"
+            src="./hero-2560.webp"
+            srcSet="./hero-1280.webp 1280w, ./hero-2560.webp 2560w"
+            sizes="100vw"
+            alt=""
+            fetchPriority="high"
+          />
+          <div className="backdrop-shade" aria-hidden="true" />
+          <Hero />
+          <About />
+        </div>
         <Contact />
       </main>
       <Footer />

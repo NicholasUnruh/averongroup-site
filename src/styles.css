@@ -52,19 +52,31 @@ a { color: inherit; text-decoration: none; }
 .brand { font-weight: 600; font-size: 25px; letter-spacing: -0.055em; line-height: 1; }
 .brand i { font-style: normal; color: var(--amber); }
 
-/* Hero */
-.hero { position: relative; height: 100svh; min-height: 600px; display: flex; align-items: flex-end; overflow: hidden; }
-.hero-img {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: 50% 30%;
+/* Hero: one photo behind the hero and "What we do", so the fog runs on behind the cards */
+.backdrop { position: relative; isolation: isolate; overflow: hidden; }
+.backdrop-img {
+  position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 0;
   animation: settle 2.4s var(--ease) both;
 }
-.hero-shade {
-  position: absolute; inset: 0;
+.backdrop-shade {
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(12, 13, 18, 0.55) 0, rgba(12, 13, 18, 0) 220px),
+    linear-gradient(180deg, rgba(12, 13, 18, 0) 30%, rgba(12, 13, 18, 0.3) 50%, rgba(12, 13, 18, 0.5) 78%, var(--bg) 100%);
+}
+.hero { position: relative; height: 100svh; min-height: 600px; display: flex; align-items: flex-end; }
+
+/* Review only: v2 stops the photo at the hero */
+[data-v="2"] .backdrop-img, [data-v="2"] .backdrop-shade { height: max(100svh, 600px); bottom: auto; }
+[data-v="2"] .backdrop-img { object-position: 50% 30%; }
+[data-v="2"] .backdrop-shade {
   background:
     linear-gradient(180deg, rgba(12, 13, 18, 0.55) 0%, rgba(12, 13, 18, 0) 22%),
     linear-gradient(180deg, rgba(12, 13, 18, 0) 38%, rgba(12, 13, 18, 0.35) 62%, var(--bg) 100%);
 }
+[data-v="2"] .section-about { background: radial-gradient(70% 45% at 50% 0%, rgba(240, 163, 94, 0.07), transparent 70%); }
+
 .hero-copy { position: relative; text-align: center; padding-bottom: clamp(96px, 16vh, 168px); }
 .hero h1 {
   font-weight: 500; font-size: clamp(38px, 5.6vw, 72px); line-height: 1.05; letter-spacing: -0.035em;
@@ -117,15 +129,12 @@ h2 { font-weight: 500; font-size: clamp(32px, 4vw, 52px); letter-spacing: -0.035
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* The photo carries through. Fog behind "What we do", a blurred sunrise behind the form, glass on top. */
-.section-about .section-bg {
-  background: linear-gradient(180deg, var(--bg) 0%, rgba(12, 13, 18, 0.55) 30%, rgba(12, 13, 18, 0.7) 100%), url("/hero-2560.webp") 50% 92% / cover;
-}
-.section-contact .section-bg { background: var(--bg); }
-.section-contact .section-bg::before {
-  content: ""; position: absolute; inset: -60px;
-  background: linear-gradient(180deg, var(--bg) 0%, rgba(12, 13, 18, 0.35) 35%, rgba(12, 13, 18, 0.6) 100%), url("/hero-1280.webp") 50% 25% / cover;
-  filter: blur(36px) saturate(1.2);
+/* Contact: deep navy with a faint sunrise glow */
+.section-contact .section-bg {
+  background:
+    radial-gradient(60% 70% at 50% 0%, rgba(240, 163, 94, 0.09), transparent 70%),
+    radial-gradient(50% 60% at 90% 100%, rgba(91, 108, 240, 0.12), transparent 70%),
+    var(--bg);
 }
 
 /* Glass surfaces */
@@ -163,5 +172,5 @@ h2 { font-weight: 500; font-size: clamp(32px, 4vw, 52px); letter-spacing: -0.035
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero-img, .hero h1, .hero .btn { animation: none; }
+  .backdrop-img, .hero h1, .hero .btn { animation: none; }
 }
