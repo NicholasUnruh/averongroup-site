@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 const FORM_KEY = "";
 
 const SERVICES = [
-  ["01", "Sourcing", "We find products Canadians want and work directly with the manufacturers who make them."],
-  ["02", "Distribution", "We handle import, customs and delivery, so products reach customers across Canada."],
-  ["03", "Sales", "We sell to Canadian consumers through Amazon.ca and other online channels."],
+  ["01", "Sourcing", "We identify products in demand across Canada and partner directly with the manufacturers who produce them."],
+  ["02", "Distribution", "We manage importing, customs and logistics, so every product arrives ready for Canadian customers."],
+  ["03", "Sales", "We bring products to market on Amazon.ca and other online channels, reaching shoppers nationwide."],
 ];
 
 function Logo() {
@@ -77,7 +77,10 @@ function About() {
   return (
     <section className="section section-about" id="about">
       <div className="container">
-        <h2 className="reveal">What we do</h2>
+        <div className="section-head reveal">
+          <h2>What we do</h2>
+          <p>From the manufacturer to the Canadian customer, we manage every step.</p>
+        </div>
         <ul className="cards">
           {SERVICES.map(([num, title, text]) => (
             <li className="card reveal" key={title}>
@@ -167,8 +170,8 @@ function Contact() {
     <section className="section section-contact" id="contact">
       <div className="container contact">
         <div className="contact-head reveal">
-          <h2>Get in touch</h2>
-          <p>Manufacturers, buyers and partners: tell us what you have in mind.</p>
+          <h2>Let's work together</h2>
+          <p>Whether you manufacture a product, want to carry one or see an opportunity to partner, we'd like to hear from you.</p>
         </div>
         <div className="panel reveal">
           <ContactForm />
