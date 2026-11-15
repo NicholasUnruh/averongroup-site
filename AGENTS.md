@@ -12,8 +12,4 @@ npm ci && npm run build    # output in dist/; `npm run dev` for a local preview
 - No partner names or photos on the site (owner, 2026-11-15).
 - Copy must stay true: no invented clients, figures, years in business or certifications. The hero "Product screen" panel is decorative and shows no numbers.
 - Look: "Midnight tech" dark theme, the owner's pick on 2026-11-15. Layout or style direction changes go to the owner first; no agent screenshots.
-- Domain `averongroup.ca` is at GoDaddy (Alex's account, delegate access). DNS stays at GoDaddy: Microsoft 365 email records live there.
-
-## Pending
-
-- Point `averongroup.ca` at Pages: apex A records 185.199.108.153, .109, .110, .111 and `www` CNAME to `nicholasunruh.github.io`; then set the custom domain in the repo's Pages settings and enforce HTTPS.
+- Domain `averongroup.ca` is at GoDaddy (Alex's account, delegate access). DNS stays at GoDaddy: Microsoft 365 email records live there. Apex A records point at the four GitHub Pages IPs (185.199.108–111.153) and `www` is a CNAME to `nicholasunruh.github.io`. The custom domain is set in the repo's Pages settings, not in a `CNAME` file, because the site deploys through Actions.
