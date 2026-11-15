@@ -56,7 +56,7 @@ function Nav() {
         <nav className="nav-links" aria-label="Main">
           <a href="#about">What we do</a>
         </nav>
-        <a className="btn btn-accent btn-small" href="#contact">Get in touch</a>
+        <a className="btn btn-glass btn-small" href="#contact">Get in touch</a>
       </div>
     </header>
   );
@@ -153,7 +153,7 @@ function ContactForm() {
       </div>
       <input className="hp" type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <div className="form-foot">
-        <button className="btn btn-accent" type="submit" disabled={status === "sending"}>
+        <button className="btn btn-glass" type="submit" disabled={status === "sending"}>
           {status === "sending" ? "Sending…" : "Send message"}
         </button>
         {status === "error" && <p className="form-error" role="alert">Something went wrong. Please try again in a moment.</p>}
