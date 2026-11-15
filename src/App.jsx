@@ -55,7 +55,6 @@ function Nav() {
         <Logo />
         <nav className="nav-links" aria-label="Main">
           <a href="#about">What we do</a>
-          <a href="#contact">Contact</a>
         </nav>
         <a className="btn btn-accent btn-small" href="#contact">Get in touch</a>
       </div>
@@ -166,7 +165,6 @@ function ContactForm() {
 function Contact() {
   return (
     <section className="section section-contact" id="contact">
-      <div className="section-bg" aria-hidden="true" />
       <div className="container contact">
         <div className="contact-head reveal">
           <h2>Get in touch</h2>
@@ -201,16 +199,16 @@ export default function App() {
           <img
             className="backdrop-img"
             src="./hero-2560.webp"
-            srcSet="./hero-1280.webp 1280w, ./hero-2560.webp 2560w"
-            sizes="100vw"
+            srcSet="./hero-1280.webp 1280w, ./hero-2560.webp 2560w, ./hero-3840.webp 3840w"
+            sizes="150vw"
             alt=""
             fetchPriority="high"
           />
           <div className="backdrop-shade" aria-hidden="true" />
           <Hero />
           <About />
+          <Contact />
         </div>
-        <Contact />
       </main>
       <Footer />
     </>
