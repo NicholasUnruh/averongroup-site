@@ -203,7 +203,7 @@ export default function App() {
             className="backdrop-img"
             src="./hero-2560.webp"
             srcSet="./hero-1280.webp 1280w, ./hero-2560.webp 2560w, ./hero-3840.webp 3840w"
-            sizes="150vw"
+            sizes="(max-width: 860px) 330vw, 150vw"
             alt=""
             fetchPriority="high"
           />
