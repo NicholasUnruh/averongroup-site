@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 // Web3Forms access key for the team inbox. It is public by design: it can only send to that inbox.
-const FORM_KEY = "";
+const FORM_KEY = "ea9d268b-a4e0-40b2-b6e1-1fa8fbb193f2";
 
 const SERVICES = [
   ["01", "Sourcing", "We build direct relationships with manufacturers to bring proven products to the Canadian market."],
